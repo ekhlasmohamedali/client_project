@@ -1,0 +1,50 @@
+<header class="masthead">
+  <div class="overlay"></div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="page-heading">
+                  <h1>Create New Post</h1>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+
+<div class="container" [ngStyle]="{backgroundImage:'url(assets/image/BackGroundList.jfif)'}">
+  <div class="row">
+      <div class="col-md-8 offset-md-2">
+          <form action="/posts/store" method="POST">
+              <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                      <label style="color: darkgray;">Title</label>
+                      <input [(ngModel)]="nblog.title" type="text" name="Title" placeholder="Title"
+                          class="form-control">
+                  </div>
+              </div>
+              <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                      <label style="color: darkgray;">Content</label>
+                      <textarea [(ngModel)]=nblog.blog_body name="Body" placeholder="Body ..." cols="30" rows="10"
+                          class="form-control"></textarea>
+                  </div>
+                  <label for="photo">Photo</label>
+                  <input type="file" name="photo" id="photo" class="form-control" (input)="onselect($event)"
+                      [(ngModel)]="nblog.photo">
+
+              </div>
+              <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                      <label style="color: darkgray;">Tags</label>
+                      <input [(ngModel)]=nblog.tags type="text" name="Tag" placeholder="Tag" class="form-control">
+                  </div>
+              </div>
+              <div class="form-group my-4 text-center">
+                  <button class="btn btn-secondary" (click)="save()">Create Post</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
